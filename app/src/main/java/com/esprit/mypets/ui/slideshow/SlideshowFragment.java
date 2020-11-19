@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,11 +24,11 @@ public class SlideshowFragment extends Fragment {
         slideshowViewModel =
                 new ViewModelProvider(this).get(SlideshowViewModel.class);
         View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
-        final TextView textView = root.findViewById(R.id.text_slideshow);
+        final EditText editTextTextPersonName = root.findViewById(R.id.editTextTextPersonName);
         slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+                editTextTextPersonName.setText(s);
             }
         });
         return root;
